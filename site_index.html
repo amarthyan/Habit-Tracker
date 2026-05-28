@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charSet="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/assets/styles-Bm2A7Fog.css" data-precedence="default" />
+	<title>Habit Tracker</title>
+	<meta name="author" content="Lovable" />
+	<meta property="og:title" content="Lovable App" />
+	<meta property="og:description"
+		content="A modern web app for tracking monthly habits with a colorful, Excel-style dashboard interface." />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@Lovable" />
+	<meta name="twitter:title" content="Lovable App" />
+	<meta name="twitter:description"
+		content="A modern web app for tracking monthly habits with a colorful, Excel-style dashboard interface." />
+	<meta property="og:image"
+		content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0b1cec8d-507d-4eb4-b5d3-b6688b8d1231/id-preview-87cf537e--a7141b52-ecd0-48ce-b6f8-628a33d8cc3b.lovable.app-1778844293586.png" />
+	<meta name="twitter:image"
+		content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0b1cec8d-507d-4eb4-b5d3-b6688b8d1231/id-preview-87cf537e--a7141b52-ecd0-48ce-b6f8-628a33d8cc3b.lovable.app-1778844293586.png" />
+	<meta name="description"
+		content="Colorful monthly habit tracker dashboard with weekly progress, analytics, and PDF/Excel export." />
+	<link rel="modulepreload" href="/assets/index-BTL1nAZA.js" />
+	<link rel="modulepreload" href="/assets/index-BYiV52za.js" />
+	<style>
+		@font-face {
+			font-family: 'CameraPlainVariable';
+			src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+			font-weight: 100 900;
+			font-style: normal;
+			font-display: swap;
+		}@media (prefers-reduced-motion: reduce) {}
+
+		@media (prefers-contrast: high) {}
+	</style>
+	<script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script>
+</head>
+
+<body><!--$-->
+	<div class="min-h-screen bg-background px-4 py-8 sm:px-6 lg:px-10">
+		<div class="mx-auto max-w-[1400px]">
+			<div class="mb-6 flex flex-col items-center gap-4">
+				<div class="flex w-full items-center justify-between">
+					<div class="flex gap-2"><button
+							class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-file-down mr-1.5 h-4 w-4"
+								aria-hidden="true">
+								<path
+									d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z">
+								</path>
+								<path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+								<path d="M12 18v-6"></path>
+								<path d="m9 15 3 3 3-3"></path>
+							</svg> PDF</button><button
+							class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-file-spreadsheet mr-1.5 h-4 w-4"
+								aria-hidden="true">
+								<path
+									d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z">
+								</path>
+								<path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+								<path d="M8 13h2"></path>
+								<path d="M14 13h2"></path>
+								<path d="M8 17h2"></path>
+								<path d="M14 17h2"></path>
+							</svg> Excel</button></div><button
+						class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9"><svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-moon h-4 w-4" aria-hidden="true">
+							<path
+								d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401">
+							</path>
+						</svg></button>
+				</div>
+				<h1 class="text-center text-4xl font-bold tracking-tight sm:text-5xl"
+					style="opacity:0;transform:translateY(-8px)">Habit Tracker</h1>
+				<div class="flex items-center gap-3"><button
+						class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9"><svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-chevron-left h-4 w-4" aria-hidden="true">
+							<path d="m15 18-6-6 6-6"></path>
+						</svg></button>
+					<div class="min-w-[80px] text-center text-2xl font-bold tabular-nums">2026</div><button
+						class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9"><svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-chevron-right h-4 w-4" aria-hidden="true">
+							<path d="m9 18 6-6-6-6"></path>
+						</svg></button>
+				</div>
+				<div class="flex flex-wrap justify-center gap-1.5"><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week1-soft);color:var(--foreground)">Jan</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week2-soft);color:var(--foreground)">Feb</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week3-soft);color:var(--foreground)">Mar</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week4-soft);color:var(--foreground)">Apr</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week5);color:white;box-shadow:0 4px 12px color-mix(in oklab, var(--week5) 35%, transparent)">May</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week1-soft);color:var(--foreground)">Jun</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week2-soft);color:var(--foreground)">Jul</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week3-soft);color:var(--foreground)">Aug</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week4-soft);color:var(--foreground)">Sep</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week5-soft);color:var(--foreground)">Oct</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week1-soft);color:var(--foreground)">Nov</button><button
+						class="rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all"
+						style="background:var(--week2-soft);color:var(--foreground)">Dec</button></div>
+				<p class="text-sm text-muted-foreground">May<!-- --> <!-- -->2026<!-- --> ·
+					<!-- -->0<!-- -->/<!-- -->248<!-- --> completed ·<!-- --> <!-- -->0<!-- -->%</p>
+			</div>
+			<div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+				<div class="overflow-x-auto rounded-2xl border bg-card p-4 shadow-[var(--shadow-soft)]">
+					<div class="min-w-max">
+						<div class="grid items-end gap-px" style="grid-template-columns:220px repeat(31, 36px) 60px">
+							<div></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week1)">W<!-- -->1</div>
+							</div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week2)">W<!-- -->2</div>
+							</div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week3)">W<!-- -->3</div>
+							</div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week4)">W<!-- -->4</div>
+							</div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week5)">W<!-- -->5</div>
+							</div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center"></div>
+							<div class="flex flex-col items-center">
+								<div class="mb-1 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+									style="background:var(--week1)">W<!-- -->6</div>
+							</div>
+							<div></div>
+						</div>
+						<div class="grid items-center gap-px border-b pb-2"
+							style="grid-template-columns:220px repeat(31, 36px) 60px">
+							<div class="px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Habit
+							</div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week1-soft)"><span
+									class="text-sm font-bold text-foreground">1</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">F</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week1-soft)"><span
+									class="text-sm font-bold text-foreground">2</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">3</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">4</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">M</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">5</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">6</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">W</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">7</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">8</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">F</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week2-soft)"><span
+									class="text-sm font-bold text-foreground">9</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">10</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">11</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">M</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">12</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">13</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">W</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">14</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">15</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">F</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week3-soft)"><span
+									class="text-sm font-bold text-foreground">16</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">17</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">18</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">M</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">19</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">20</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">W</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">21</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">22</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">F</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week4-soft)"><span
+									class="text-sm font-bold text-foreground">23</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">24</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">25</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">M</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">26</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">27</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">W</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">28</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">T</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">29</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">F</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week5-soft)"><span
+									class="text-sm font-bold text-foreground">30</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="flex flex-col items-center rounded-md py-1"
+								style="background:var(--week1-soft)"><span
+									class="text-sm font-bold text-foreground">31</span><span
+									class="text-[9px] font-medium uppercase text-muted-foreground">S</span></div>
+							<div class="text-center text-[10px] font-semibold uppercase text-muted-foreground">Done
+							</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Exercise 3x a week</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Drink 16 cups of water</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Clean the room</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Eat fruits &amp; vegetables</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Walk the dog</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Self-reflection</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Study session</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div>
+						<div class="group grid items-center gap-px border-b border-border/60 py-1.5 hover:bg-muted/30"
+							style="grid-template-columns:220px repeat(31, 36px) 60px;opacity:0;transform:translateX(-6px)">
+							<div class="flex items-center gap-1 px-2"><button
+									class="flex-1 truncate text-left text-sm font-medium hover:text-primary"
+									title="Click to edit">Good sleep session</button><button
+									class="opacity-0 transition-opacity group-hover:opacity-100"
+									aria-label="Remove habit"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+										height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+										class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5 text-muted-foreground hover:text-destructive"
+										aria-hidden="true">
+										<path d="M10 11v6"></path>
+										<path d="M14 11v6"></path>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+										<path d="M3 6h18"></path>
+										<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+									</svg></button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week2-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week3-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week4-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week5-soft)"></div>
+								</button></div>
+							<div class="flex justify-center"><button
+									class="relative h-7 w-7 rounded-md border transition-colors" aria-pressed="false"
+									tabindex="0" style="background:transparent;border-color:var(--border)">
+									<div class="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity hover:opacity-100"
+										style="background:var(--week1-soft)"></div>
+								</button></div>
+							<div class="text-center text-sm font-semibold tabular-nums text-foreground">0</div>
+						</div><button
+							class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/40 hover:text-foreground"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-plus h-4 w-4" aria-hidden="true">
+								<path d="M5 12h14"></path>
+								<path d="M12 5v14"></path>
+							</svg> Add habit</button>
+					</div>
+				</div>
+				<div class="rounded-2xl border bg-card p-5 shadow-[var(--shadow-soft)]">
+					<h2 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">Goals &amp;
+						Progress</h2>
+					<div class="space-y-4">
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Exercise 3x a week</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="12" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week2);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Drink 16 cups of water</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="28" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week3);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Clean the room</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="8" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week4);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Eat fruits &amp; vegetables</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="28" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week5);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Walk the dog</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="20" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week1);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Self-reflection</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="14" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week2);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Study session</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="20" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week3);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+						<div class="space-y-1.5">
+							<div class="flex items-center justify-between gap-2"><span
+									class="truncate text-xs font-medium">Good sleep session</span>
+								<div class="flex items-center gap-1 text-[11px] tabular-nums text-muted-foreground">
+									<span>0</span>/<input type="number"
+										class="w-9 rounded border-0 bg-muted px-1 py-0 text-right text-[11px] tabular-nums focus:outline-none focus:ring-1 focus:ring-ring"
+										value="28" /></div>
+							</div>
+							<div class="flex items-center gap-2">
+								<div class="relative h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+									<div class="absolute inset-y-0 left-0 rounded-full"
+										style="background:var(--week4);width:0px"></div>
+								</div><span
+									class="w-10 text-right text-xs font-medium tabular-nums text-muted-foreground">0<!-- -->%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-8 grid gap-6 lg:grid-cols-[1fr_2fr]">
+				<div class="rounded-2xl border bg-card p-6 shadow-[var(--shadow-soft)]">
+					<h2 class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground">May<!-- -->
+						Overview</h2>
+					<div class="flex flex-col items-center gap-6">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:170px;height:170px"><svg width="170" height="170"
+									class="-rotate-90">
+									<circle cx="85" cy="85" r="79" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="85" cy="85" r="79" stroke="var(--week2)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="496.37163926718733"
+										stroke-dashoffset="496.37163926718733"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Monthly Progress</span>
+						</div>
+						<div class="grid w-full grid-cols-2 gap-3">
+							<div class="rounded-lg p-3"
+								style="background:color-mix(in oklab, var(--week4) 12%, transparent)">
+								<div class="text-2xl font-bold tabular-nums" style="color:var(--week4)">0</div>
+								<div class="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+									Completed</div>
+							</div>
+							<div class="rounded-lg p-3"
+								style="background:color-mix(in oklab, var(--week3) 12%, transparent)">
+								<div class="text-2xl font-bold tabular-nums" style="color:var(--week3)">248</div>
+								<div class="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+									Incomplete</div>
+							</div>
+							<div class="rounded-lg p-3"
+								style="background:color-mix(in oklab, var(--week1) 12%, transparent)">
+								<div class="text-2xl font-bold tabular-nums" style="color:var(--week1)">0</div>
+								<div class="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+									Habits Hit Goal</div>
+							</div>
+							<div class="rounded-lg p-3"
+								style="background:color-mix(in oklab, var(--week5) 12%, transparent)">
+								<div class="text-2xl font-bold tabular-nums" style="color:var(--week5)">8</div>
+								<div class="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+									Habits Tracked</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="rounded-2xl border bg-card p-6 shadow-[var(--shadow-soft)]">
+					<h2 class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground">Weekly Completion
+						· <!-- -->May</h2>
+					<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week1)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/16</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 1</span>
+						</div>
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week2)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/56</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 2</span>
+						</div>
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week3)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/56</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 3</span>
+						</div>
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week4)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/56</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 4</span>
+						</div>
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week5)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/56</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 5</span>
+						</div>
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:120px;height:120px"><svg width="120" height="120"
+									class="-rotate-90">
+									<circle cx="60" cy="60" r="54" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="60" cy="60" r="54" stroke="var(--week1)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="339.29200658769764"
+										stroke-dashoffset="339.29200658769764"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/8</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Week 6</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-8 rounded-2xl border bg-card p-6 shadow-[var(--shadow-soft)]">
+				<div class="mb-6 flex items-center justify-between gap-4">
+					<h2 class="text-sm font-bold uppercase tracking-wider text-muted-foreground">2026<!-- --> Year
+						Overview</h2>
+					<div class="text-sm font-semibold tabular-nums text-muted-foreground">0<!-- -->/<!-- -->2920<!-- -->
+						· <!-- -->0<!-- -->%</div>
+				</div>
+				<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week1)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Jan</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week2)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/224</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Feb</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week3)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Mar</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week4)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/240</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Apr</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:var(--week5-soft);border-color:var(--week5)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week5)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">May</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week1)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/240</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Jun</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week2)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Jul</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week3)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Aug</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week4)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/240</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Sep</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week5)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Oct</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week1)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/240</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Nov</span>
+						</div>
+					</button><button
+						class="flex flex-col items-center rounded-xl border p-3 transition-all hover:scale-[1.03]"
+						style="background:transparent;border-color:var(--border)">
+						<div class="flex flex-col items-center gap-2">
+							<div class="relative" style="width:90px;height:90px"><svg width="90" height="90"
+									class="-rotate-90">
+									<circle cx="45" cy="45" r="39" stroke="var(--muted)" stroke-width="12" fill="none">
+									</circle>
+									<circle cx="45" cy="45" r="39" stroke="var(--week2)" stroke-width="12"
+										stroke-linecap="round" fill="none" stroke-dasharray="245.04422698000386"
+										stroke-dashoffset="245.04422698000386"></circle>
+								</svg>
+								<div class="absolute inset-0 flex flex-col items-center justify-center"><span
+										class="text-xl font-semibold text-foreground">0<!-- -->%</span><span
+										class="text-[10px] text-muted-foreground">0/248</span></div>
+							</div><span class="text-xs font-medium text-muted-foreground">Dec</span>
+						</div>
+					</button></div>
+			</div>
+		</div>
+	</div><!--/$-->
+	<script class="$tsr"
+		id="$tsr-stream-barrier">(self.$R = self.$R || {})["tsr"] = []; self.$_TSR = { h() { this.hydrated = !0, this.c() }, e() { this.streamEnded = !0, this.c() }, c() { this.hydrated && this.streamEnded && (delete self.$_TSR, delete self.$R.tsr) }, p(e) { this.initialized ? e() : this.buffer.push(e) }, buffer: [] }; $_TSR.router = ($R => $R[0] = { manifest: $R[1] = { routes: $R[2] = { __root__: $R[3] = { preloads: $R[4] = ["/assets/index-BTL1nAZA.js"], assets: $R[5] = [$R[6] = { tag: "script", attrs: $R[7] = { type: "module", async: !0 }, children: "import(\"/assets/index-BTL1nAZA.js\")" }] }, "/": $R[8] = { preloads: $R[9] = ["/assets/index-BYiV52za.js"] } } }, matches: $R[10] = [$R[11] = { i: "__root__ ", u: 1779986566237, s: "success", ssr: !0 }, $R[12] = { i: "  ", u: 1779986566237, s: "success", ssr: !0 }], lastMatchId: "  " })($R["tsr"]); $_TSR.e(); document.currentScript.remove()</script>
+	<script type="module" async="">import("/assets/index-BTL1nAZA.js")</script></body>
+
+</html>
