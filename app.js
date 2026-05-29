@@ -166,6 +166,19 @@ function getHabitMonthCompletionCount(habitId, year, monthIdx) {
 }
 
 function render() {
+  // Save active element focus and selection to prevent layout refresh blur
+  const activeId = document.activeElement ? document.activeElement.id : null;
+  let cursorStart = null;
+  let cursorEnd = null;
+  try {
+    if (document.activeElement && (document.activeElement.tagName === 'INPUT')) {
+      cursorStart = document.activeElement.selectionStart;
+      cursorEnd = document.activeElement.selectionEnd;
+    }
+  } catch (e) {
+    // selectionStart/End might throw on some input types like 'number' in some configurations
+  }
+
   const days = getDaysInMonth(state.currentYear, state.currentMonth);
   const totalCells = state.habits.length * days.length;
   
@@ -188,6 +201,21 @@ function render() {
   
   // Render Analytics (Circular Charts and Cards)
   renderAnalytics(days, monthlyCompleted, totalCells, monthlyPercentage);
+
+  // Restore focus state dynamically after rebuilding DOM nodes
+  if (activeId) {
+    const el = document.getElementById(activeId);
+    if (el) {
+      el.focus();
+      try {
+        if (cursorStart !== null && cursorEnd !== null) {
+          el.setSelectionRange(cursorStart, cursorEnd);
+        }
+      } catch (e) {
+        // Safe catch for input types not supporting selection ranges
+      }
+    }
+  }
 }
 
 function renderHeaderControls(completed, total, pct) {
@@ -310,6 +338,7 @@ function renderHabitGrid(days) {
       input.type = 'text';
       input.className = 'habit-name-input';
       input.value = habit.name;
+      input.id = `name-input-${habit.id}`;
       
       const saveEdit = () => {
         const val = input.value.trim();
@@ -478,6 +507,7 @@ function renderGoalsPanel() {
     goalInput.className = 'goal-input';
     goalInput.value = habit.goal;
     goalInput.min = '0';
+    goalInput.id = `goal-input-${habit.id}`;
     
     goalInput.addEventListener('change', () => {
       const val = parseInt(goalInput.value);
@@ -683,6 +713,9 @@ function exportPDF() {
   }
   
   try {
+    if (!window.jsPDF) {
+      window.jsPDF = window.jspdf.jsPDF;
+    }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ orientation: "landscape" });
     const days = getDaysInMonth(state.currentYear, state.currentMonth);
